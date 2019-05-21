@@ -12,13 +12,20 @@ import App from './App'
 import router from './router'
 // 导入fastClick 包
 import fastClick from 'fastclick'
+//  导入轮播图插件
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+
 //  导入reset.css
 import 'styles/reset.css'
 import 'styles/border.css'
 import 'styles/iconfont.css'
+// 导入轮播图样式
+import 'swiper/dist/css/swiper.css'
 
 fastClick.attach(document.body)
 Vue.config.productionTip = false
+// 使用这个插件爱你
+Vue.use(VueAwesomeSwiper)
 
 /* eslint-disable no-new */
 new Vue({
