@@ -1,13 +1,17 @@
 /* eslint-disable */
 <template>
     <div>
-    hello world
+    <home-header></home-header>
     </div>
 </template>
 
 <script>
+import HomeHeader from './components/Header.vue'
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {
+    HomeHeader
+  }
 }
 </script>
 

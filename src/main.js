@@ -13,8 +13,9 @@ import router from './router'
 // 导入fastClick 包
 import fastClick from 'fastclick'
 //  导入reset.css
-import './assets/styles/reset.css'
-import './assets/styles/border.css'
+import 'styles/reset.css'
+import 'styles/border.css'
+import 'styles/iconfont.css'
 
 fastClick.attach(document.body)
 Vue.config.productionTip = false
