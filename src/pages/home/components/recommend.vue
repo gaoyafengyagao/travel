@@ -12,5 +12,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-    
+    .recommend-title {
+        
+    }
 </style>
