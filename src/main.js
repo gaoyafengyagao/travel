@@ -15,6 +15,11 @@ import fastClick from 'fastclick'
 //  导入轮播图插件
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 
+//导入 element-ui包
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+
 //  导入reset.css
 import 'styles/reset.css'
 import 'styles/border.css'
