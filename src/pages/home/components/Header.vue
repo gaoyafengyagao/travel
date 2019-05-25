@@ -56,6 +56,7 @@ export default {
            width: 1.24rem;
            float: right;
            text-align: center;
+           color: #fff;
            .icon-jiantou {
                font-size: 0.24rem;
                margin-left: -0.04rem;
