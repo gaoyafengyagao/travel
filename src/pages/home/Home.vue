@@ -18,7 +18,7 @@ export default {
   name: 'Home',
   data(){
     return {
-      citys: '',
+      citys: [],
       swiperList: []
     }
   },
@@ -36,13 +36,22 @@ export default {
       res = res.data;
       if(res.ret && res.data){
         const data = res.data;
-        this.citys = data.city;
         this.swiperList = data.swiperList;
       }
-    }
+    },
+    getCitys(){
+            axios.get('/api/city.json').then(function(result){
+                if(result.ret && result.data){
+                    const data = result.data;
+                    this.citys = data.hotCities;
+                    console.log(this.citys)
+                }
+            })
+        }
   },
   mounted (){
-    this.getHomeInfo()
+    this.getHomeInfo(),
+    this.getCitys()
   }
 }
 </script>
