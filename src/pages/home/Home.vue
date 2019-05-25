@@ -1,9 +1,10 @@
 /* eslint-disable */
 <template>
     <div>
-    <home-header></home-header>
-    <HomeSwiper></HomeSwiper>
+    <home-header :city='citys'></home-header>
+    <HomeSwiper :list='swiperList'></HomeSwiper>
     <HomeIcon></HomeIcon>
+    <home-recommend></home-recommend>
     </div>
 </template>
 
@@ -11,12 +12,37 @@
 import HomeHeader from './components/Header.vue'
 import HomeSwiper from './components/swiper.vue'
 import HomeIcon from './components/icon.vue'
+import HomeRecommend from './components/recommend.vue'
+import axios from 'axios'
 export default {
   name: 'Home',
+  data(){
+    return {
+      citys: '',
+      swiperList: []
+    }
+  },
   components: {
     HomeHeader,
     HomeSwiper,
-    HomeIcon
+    HomeIcon,
+    HomeRecommend
+  },
+  methods: {
+    getHomeInfo(){
+      axios.get('/api/index.json').then(this.getHomeInfoSucc)
+    },
+    getHomeInfoSucc(res){
+      res = res.data;
+      if(res.ret && res.data){
+        const data = res.data;
+        this.citys = data.city;
+        this.swiperList = data.swiperList;
+      }
+    }
+  },
+  mounted (){
+    this.getHomeInfo()
   }
 }
 </script>

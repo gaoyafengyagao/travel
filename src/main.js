@@ -15,6 +15,8 @@ import fastClick from 'fastclick'
 //  导入轮播图插件
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 
+
+
 //  导入reset.css
 import 'styles/reset.css'
 import 'styles/border.css'
