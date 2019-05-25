@@ -37,21 +37,12 @@ export default {
       if(res.ret && res.data){
         const data = res.data;
         this.swiperList = data.swiperList;
+        this.citys = data.citys
       }
     },
-    getCitys(){
-            axios.get('/api/city.json').then(function(result){
-                if(result.ret && result.data){
-                    const data = result.data;
-                    this.citys = data.hotCities;
-                    console.log(this.citys)
-                }
-            })
-        }
   },
   mounted (){
-    this.getHomeInfo(),
-    this.getCitys()
+    this.getHomeInfo()
   }
 }
 </script>
