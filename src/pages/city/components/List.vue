@@ -5,7 +5,7 @@
             <div class='title border-topbottom'>当前城市</div>
             <div class='button-list'>
                 <div class="button-wrap">
-                    <div class="button">北京</div>
+                    <div class="button">{{this.$store.state.city}}</div>
                 </div>
             </div>
         </div>
@@ -13,17 +13,8 @@
         <div class='area'>
             <div class='title border-topbottom'>热门城市</div>
             <div class='button-list' >
-                <div class="button-wrap" v-for="(item,index) of hot" :key='index'>
+                <div class="button-wrap" v-for="item of hotcitylist" :key='item.id' @click='getDefaultCity(item.name)'>
                     <div class="button">{{item.name}}</div>
-                </div>
-                <div class="button-wrap">
-                    <div class="button">北京</div>
-                </div>
-                <div class="button-wrap">
-                    <div class="button">北京</div>
-                </div>
-                <div class="button-wrap">
-                    <div class="button">北京</div>
                 </div>
             </div>
         </div>
@@ -31,7 +22,7 @@
         <div class='area'  v-for="(item,key) of city" :key="key"  :ref='key'>
             <div class='title border-topbottom'>{{key}}</div>
             <div class='item-list'>
-                <div class="item" v-for="inner in item" :key="inner.id">{{inner.name}}</div>   
+                <div class="item" v-for="inner in item" :key="inner.id" @click='getDefaultCity(inner.name)'>{{inner.name}}</div>   
             </div>
         </div>
     </div>
@@ -46,10 +37,47 @@ export default {
         hot: Array,
         letter: String
     },
+    data(){
+        return{
+            hotcitylist: [
+            {
+			"id": 1,
+			"spell": "beijing",
+			"name": "北京"
+		}, {
+			"id": 3,
+			"spell": "shanghai",
+			"name": "上海"
+		}, {
+			"id": 47,
+			"spell": "xian",
+			"name": "西安"
+		}, {
+			"id": 239,
+			"spell": "sanya",
+			"name": "三亚"
+		}, {
+			"id": 188,
+			"spell": "lijiang",
+			"name": "丽江"
+		}, {
+			"id": 125,
+			"spell": "guilin",
+			"name": "桂林"
+		}
+            ]
+        }
+    },
     watch: {
         letter(){
             const element = this.$refs[this.letter][0]
             this.scroll.scrollToElement(element)
+        }
+    },
+    methods: {
+        getDefaultCity(city){
+            this.$store.dispatch('changeCity',city) //利用 action中的函数 来将数据传递给 store
+            this.$router.push('/')  //编程式导航
         }
     },
     mounted(){

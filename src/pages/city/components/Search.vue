@@ -5,8 +5,8 @@
     </div>
     <div class='search-input' v-show="this.keywords">
         <ul>
-            <li v-for="item in list" :key="item.id" class='search-item'>{{item.name}}</li>
-            <!-- 优化代码: 将html中的逻辑代码移到 JS 中去 -->
+            <li v-for="item in list" :key="item.id" class='search-item' @click='getDefaultCity(item.name)'>{{item.name}}</li>
+            <!-- 优化代码: 将html中的逻辑代码移到 JS 中去 --> 
             <li class='search-item' v-show='noDate'>没有找到匹配数据</li>
         </ul>
     </div>
@@ -53,7 +53,10 @@ export default {
         }
     },
     methods: {
-
+        getDefaultCity(city){
+            this.$store.dispatch('changeCity',city) //利用 action中的函数 来将数据传递给 store
+            this.$router.push('/')  //  编程式导航
+        }
     }
 }
 </script>

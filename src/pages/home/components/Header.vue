@@ -7,7 +7,7 @@
             <span class="iconfont">&#xe615;</span>
             输入城市/景点/游玩主题</div>
             <router-link to="/city">
-                <div class="header-right">城市
+                <div class="header-right">{{this.$store.state.city}}
                     <span class="iconfont icon-jiantou">&#xe64a;</span>
                 </div>
             </router-link>
@@ -18,7 +18,6 @@
 export default {
   name: 'HomeHeader',
   props: {
-      city: Array
 
   }
 }

@@ -1,7 +1,7 @@
 /* eslint-disable */
 <template>
     <div>
-    <home-header :city='citys'></home-header>
+    <home-header></home-header>
     <HomeSwiper :list='swiperList'></HomeSwiper>
     <HomeIcon></HomeIcon>
     <home-recommend></home-recommend>
@@ -18,7 +18,6 @@ export default {
   name: 'Home',
   data(){
     return {
-      citys: [],
       swiperList: []
     }
   },
@@ -37,7 +36,6 @@ export default {
       if(res.ret && res.data){
         const data = res.data;
         this.swiperList = data.swiperList;
-        this.citys = data.citys
       }
     },
   },

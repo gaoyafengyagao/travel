@@ -5,6 +5,9 @@
 //  导入 vue 的包
 import Vue from 'vue'
 
+//导入 vuex 相关的文件
+import store from './store/index.js'
+
 //  导入根组件 App
 import App from './App'
 
@@ -33,6 +36,7 @@ Vue.use(VueAwesomeSwiper)
 new Vue({
   el: '#app',
   router: router,
+  store: store, //将vuex的 store 挂载到 根实例上
   components: {App},
   template: '<App/>'
 })
