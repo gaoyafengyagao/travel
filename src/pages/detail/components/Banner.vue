@@ -2,9 +2,9 @@
 <div>
     <div class='banner' @click='handleGallary'>
         <img class='banner-img'
-        src="https://m.tuniucdn.com/fb2/t1/G5/M00/6A/8E/Cii-s1vNhv2IbhQZABBz_RbJZnoAAPdxQPr8OwAEHQV863_w640_h320_c1_t0.png" alt="">
+        src="https://m.tuniucdn.com/fb2/t1/G2/M00/80/9C/Cii-T1fo1mOIJt7IADD_CmMUvbMAACxswCA9a0AMP8i668_w640_h320_c1_t0.jpg" alt="">
         <div class='banner-info'>
-            <div class='banner-title'>跟团游</div>
+            <div class='banner-title'>{{this.sightName}}}</div>
             <div class='banner-number'>
                 <span class="iconfont icon-jiantou">&#xe643;</span> &nbsp;23
             </div>
@@ -18,6 +18,10 @@
 import CommonGallary from 'common/gallary/Gallary.vue'
 export default {
     name: 'BannerDetail',
+    props: {
+        sightName: String,
+        bannerImg: String
+    },
     data(){
         return {
             image: ['https://img1.qunarzz.com/vs_ceph_vs_tts/adbf3ff8-0176-4394-a841-12098440a4cb.jpg_r_1280x840x90_338c57e7.jpg',
