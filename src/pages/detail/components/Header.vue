@@ -27,6 +27,7 @@ export default {
     methods: {
         handleHeaderShow(){
             const top = document.documentElement.scrollTop
+            // console.log(top)
             if(top>60){
                 let newopacity = top / 140
                 newopacity = newopacity > 1 ? 1 : newopacity
@@ -40,6 +41,9 @@ export default {
     },
     activated(){
        window.addEventListener('scroll',this.handleHeaderShow)
+    },
+    deactivated () {
+        window.removeEventListener('scroll',this.handleHeaderShow)
     }
 
 }
