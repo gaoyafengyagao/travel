@@ -2,12 +2,12 @@
     <div>
       <div class="swiper">
         <swiper :options="swiperOption" v-if="showSwiper">
-          <swiper-slide v-for='item in list' :key='item.id'>
+            <swiper-slide v-for='item in list' :key='item.id'>
               <!-- src前面必须加冒号,进行绑定 -->
-              <img class="swiper-img" :src="item.imgUrl" alt="">
-          </swiper-slide>
+            <img class="swiper-img" :src="item.imgUrl" alt="">
+            </swiper-slide>
           <div class="swiper-pagination"  slot="pagination"></div>
-          </swiper>
+        </swiper>
       </div>
     </div>
 </template>
