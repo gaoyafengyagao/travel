@@ -37,8 +37,6 @@ export default {
                 if(res.ret && res.data){
                     const data = res.data
                     this.cities = data.cities
-                    console.log(data)
-                    console.log(data.hotCitise)
                 }
             })
         },

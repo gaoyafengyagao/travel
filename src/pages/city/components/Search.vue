@@ -13,6 +13,7 @@
 </div>
 </template>
 <script>
+import { mapMutations } from 'vuex'
 export default {
     name: 'CitySearch',
     props: { //需要获取city
@@ -54,9 +55,11 @@ export default {
     },
     methods: {
         getDefaultCity(city){
-            this.$store.dispatch('changeCity',city) //利用 action中的函数 来将数据传递给 store
+            // this.$store.dispatch('changeCity',city) //利用 action中的函数 来将数据传递给 store
+            this.changeCity(city) //利用 action中的函数 来将数据传递给 store
             this.$router.push('/')  //  编程式导航
-        }
+        },
+        ...mapMutations(['changeCity']) //利用 vuex 提供的方法,将store 里的方法映射到当前文件中,就可以直接使用了
     }
 }
 </script>
