@@ -19,6 +19,8 @@ import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 
 
+//导入 bebel 解决因为 ES6 高版本带来的问题
+import 'babel-polyfill'
 
 //  导入reset.css
 import 'styles/reset.css'
